@@ -43,6 +43,13 @@ I enjoy sharing my technical knowledge and documenting my learning journey. You 
 - Open-source model testing and data engineering (Volunteered for T3 AI Türkiye Project)
 
 ---
+## 📊 GitHub Stats
+
+<p align="left">
+  <img src="https://github-readme-stats.vercel.app/api?username=beyzanur314&show_icons=true&theme=tokyonight&hide_border=true" alt="Beyzanur's GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=beyzanur314&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+</p>
+---
 
 ## 📫 Connect with Me
 
