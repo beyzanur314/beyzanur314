@@ -44,14 +44,6 @@ I enjoy sharing my technical knowledge and documenting my learning journey. You 
 
 ---
 
-## 📊 GitHub Stats
-
-<p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=beyzanur314&show_icons=true&theme=tokyonight" alt="Beyzanur's GitHub Stats" />
-</p>
-
----
-
 ## 📫 Connect with Me
 
 - 💼 **LinkedIn:** [linkedin.com/in/beyzanur-altındal](https://linkedin.com/in/beyzanur-alt%C4%B1ndal-9b8653223)
