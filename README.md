@@ -46,8 +46,7 @@ I enjoy sharing my technical knowledge and documenting my learning journey. You 
 ## 📊 GitHub Stats
 
 <p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=beyzanur314&show_icons=true&theme=tokyonight&hide_border=true" alt="Beyzanur's GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=beyzanur314&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
+  <img src="https://streak-stats.demolab.com?user=beyzanur314&theme=tokyonight&hide_border=true" alt="GitHub Streak" />
 </p>
 ---
 
