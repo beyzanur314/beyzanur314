@@ -1,5 +1,5 @@
 # Hi there, I'm Beyzanur Altındal! 👋
-### Junior Software Developer | Computer Programmer
+### Junior Software Developer
 
 I am a passionate and solution-oriented Junior Software Developer based in Ankara, Turkey. I hold an Associate Degree in Computer Programming from Gazi University. My primary focus is on building robust backend architectures and developing dynamic mobile applications. I love transforming complex logic into clean, scalable, and impactful software solutions.
 
