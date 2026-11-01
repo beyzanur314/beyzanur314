@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Beyzanur Altındal — Junior Backend Developer</title>
+<meta name="description" content="Beyzanur Altındal — Junior Backend Developer: Java 17, Spring Boot 3, yapay zekâ entegrasyonları.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+/* Layout: a card catalogue. Each section is a drawer labelled with its Dewey class; projects are catalogue cards with call numbers. */
+:root{
+  --paper:#ECEEF2;
+  --card:#F9FAFC;
+  --ink:#151A24;
+  --ink-2:#2F3647;
+  --muted:#5A6376;
+  --rule:#CDD2DC;
+  --line:#DFE3EA;
+  --stamp:#5632D4;
+  --stamp-wash:rgba(86,50,212,.09);
+  --shadow-c:rgba(21,26,36,.32);
+  --f-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
+  --maxw:1120px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#11141B;--card:#191D27;--ink:#E8EAF0;--ink-2:#C8CCD7;--muted:#9AA1B3;
+    --rule:#2B3141;--line:#242A38;--stamp:#A590FF;--stamp-wash:rgba(165,144,255,.13);
+    --shadow-c:rgba(0,0,0,.6);color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#11141B;--card:#191D27;--ink:#E8EAF0;--ink-2:#C8CCD7;--muted:#9AA1B3;
+  --rule:#2B3141;--line:#242A38;--stamp:#A590FF;--stamp-wash:rgba(165,144,255,.13);
+  --shadow-c:rgba(0,0,0,.6);color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+::selection{background:var(--stamp);color:var(--card)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--stamp);outline-offset:3px;border-radius:2px}
+
+.en{display:none}
+:root[data-lang="en"] .tr{display:none}
+:root[data-lang="en"] .en{display:inline}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Header */
+.site-head{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--rule)}
+.head-in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px}
+.logo{display:flex;align-items:baseline;gap:10px;text-decoration:none;font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:16px;letter-spacing:-.01em}
+.logo small{font-family:var(--f-mono);font-stretch:100%;font-weight:500;font-size:11px;letter-spacing:.04em;color:var(--stamp)}
+.head-right{display:flex;align-items:center;gap:24px}
+.primary{display:flex;gap:22px}
+.primary a{font-size:14px;color:var(--muted);text-decoration:none}
+.primary a:hover{color:var(--ink)}
+.lang{display:flex;border:1px solid var(--rule);border-radius:999px;padding:2px}
+.lang button{font:500 12px/1 var(--f-mono);letter-spacing:.04em;border:0;background:transparent;color:var(--muted);padding:6px 10px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+@media (max-width:860px){.primary{display:none}}
+
+/* Hero */
+.hero{padding-block:clamp(48px,8vw,104px) clamp(56px,8vw,96px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(36px,5vw,72px);align-items:center}
+@media (max-width:880px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.eyebrow{font:500 12px/1.4 var(--f-mono);text-transform:uppercase;letter-spacing:.12em;color:var(--stamp);margin:0 0 20px}
+.name{font-family:var(--f-display);font-stretch:125%;font-weight:800;font-size:clamp(44px,8.2vw,96px);line-height:.92;letter-spacing:-.035em;margin:0 0 28px}
+.name span{display:block}
+.lead{font-size:clamp(17px,1.6vw,19px);line-height:1.6;color:var(--ink-2);max-width:36em;margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--f-body);padding:13px 20px;border-radius:4px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink);transition:background .15s ease,color .15s ease}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.solid:hover{background:var(--stamp);border-color:var(--stamp);color:var(--card)}
+
+/* Catalogue card */
+.catcard-wrap{display:flex;flex-direction:column;gap:12px}
+.catcard{position:relative;background:var(--card);border:1px solid var(--rule);border-top:3px solid var(--stamp);border-radius:3px;padding:22px 24px 46px;box-shadow:0 22px 44px -28px var(--shadow-c);transform:rotate(1.2deg)}
+@media (max-width:880px){.catcard{transform:none}}
+.catcard-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.callno{font:700 16px/1.25 var(--f-mono);letter-spacing:.02em}
+.cardtype{display:block;margin-top:6px;font:500 11px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.stamp{flex:none;font:700 12px/1.1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;text-align:center;color:var(--stamp);border:2px solid currentColor;outline:1px solid currentColor;outline-offset:2px;border-radius:3px;padding:8px 10px 6px;margin:6px 6px 0 0;transform:rotate(-9deg);animation:thump .55s cubic-bezier(.2,.9,.3,1.25) .35s both}
+.stamp small{display:block;margin-top:4px;font-size:10px;font-weight:500;letter-spacing:.12em}
+@keyframes thump{0%{transform:rotate(-9deg) scale(1.9)}70%{transform:rotate(-9deg) scale(.94)}100%{transform:rotate(-9deg) scale(1)}}
+.catcard dl{margin:18px 0 0}
+.catcard dl div{display:grid;grid-template-columns:6.5rem minmax(0,1fr);gap:12px;padding-block:9px;border-bottom:1px solid var(--line)}
+.catcard dl div:first-child{border-top:1px solid var(--line)}
+.catcard dt{font:500 11px/1.9 var(--f-mono);text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.catcard dd{margin:0;font-size:15px;line-height:1.5;min-width:0}
+.hole{position:absolute;left:50%;bottom:15px;width:14px;height:14px;border-radius:50%;transform:translateX(-50%);background:var(--paper);border:1px solid var(--rule)}
+.card-caption{font:400 11.5px/1.5 var(--f-mono);color:var(--muted);margin:0;padding-left:4px}
+
+/* Drawers (sections) */
+.drawer{padding-block:clamp(56px,8vw,96px);border-top:1px solid var(--rule);scroll-margin-top:60px}
+.drawer-head{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:18px;align-items:center;margin-bottom:clamp(28px,4vw,44px)}
+.dewey{font:500 13px/1 var(--f-mono);letter-spacing:.04em;color:var(--stamp);border:1px solid var(--stamp);border-radius:3px;padding:6px 8px}
+.drawer-head h2{font-family:var(--f-display);font-stretch:118%;font-weight:750;font-size:clamp(28px,4vw,44px);line-height:1.05;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.drawer-note{grid-column:2;margin:12px 0 0;color:var(--muted);max-width:60ch}
+.drawer-note a{color:var(--stamp);text-underline-offset:3px}
+@media (max-width:520px){.drawer-head{grid-template-columns:minmax(0,1fr);row-gap:12px}.dewey{justify-self:start}.drawer-note{grid-column:1;margin-top:0}}
+
+/* Project records */
+.records{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:1000px){.records{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.records{grid-template-columns:minmax(0,1fr)}}
+.record{display:flex;flex-direction:column;gap:12px;min-width:0;background:var(--card);border:1px solid var(--rule);border-top:2px solid var(--stamp);border-radius:3px;padding:20px 20px 22px;transition:transform .2s ease,box-shadow .2s ease}
+.record:hover{transform:translateY(-3px);box-shadow:0 16px 32px -22px var(--shadow-c)}
+.record-meta{display:flex;justify-content:space-between;align-items:center;gap:10px;font:500 12px/1 var(--f-mono);color:var(--muted)}
+.chip{font:500 11px/1 var(--f-mono);letter-spacing:.03em;padding:5px 8px;border-radius:999px;background:var(--stamp-wash);color:var(--stamp);white-space:nowrap}
+.record h3{font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:21px;line-height:1.2;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.record p{margin:0;color:var(--ink-2);font-size:15px;line-height:1.6}
+.record-link{font:600 14px/1.4 var(--f-body);color:var(--stamp);text-decoration:none}
+.record-link:hover{text-decoration:underline;text-underline-offset:3px}
+.tags{list-style:none;margin:auto 0 0;padding:8px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.tags li{font:500 11.5px/1 var(--f-mono);padding:5px 7px;border:1px solid var(--rule);border-radius:3px;color:var(--muted)}
+.others{margin:28px 0 0;font-size:15px;color:var(--muted);max-width:80ch}
+.others b{font:500 12px var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-right:6px}
+
+/* Skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+@media (max-width:920px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.skills{grid-template-columns:minmax(0,1fr)}}
+.skill-group h3{font:600 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--stamp);margin:0;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.skill-group ul{list-style:none;margin:0;padding:0}
+.skill-group li{padding-block:9px;border-bottom:1px solid var(--rule);font-size:15.5px}
+
+/* Experience ledger */
+.ledger{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.ledger li{display:grid;grid-template-columns:minmax(0,16rem) minmax(0,1fr);gap:6px 36px;padding-block:20px;border-bottom:1px solid var(--rule)}
+@media (max-width:720px){.ledger li{grid-template-columns:minmax(0,1fr)}}
+.org{font-family:var(--f-display);font-stretch:112%;font-weight:700;font-size:18px;line-height:1.25}
+.period{display:block;margin-top:5px;font:500 12px/1.3 var(--f-mono);color:var(--muted)}
+.role{font-weight:600;font-size:16px;line-height:1.35}
+.desc{margin:4px 0 0;color:var(--ink-2);font-size:15px;max-width:62ch}
+
+/* Education */
+.two{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(36px,5vw,56px)}
+.entries.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+.entries.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:32px}
+@media (max-width:700px){.entries.grid-2,.entries.grid-3{grid-template-columns:minmax(0,1fr)}}
+.col-label{font:600 12px/1.3 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--stamp);margin:0;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+.entries{list-style:none;margin:0;padding:0}
+.entries li{padding-block:16px;border-bottom:1px solid var(--rule)}
+.entry-title{font-weight:650;font-size:16.5px;line-height:1.35}
+.entry-sub{display:block;margin-top:4px;color:var(--ink-2);font-size:15px}
+.entry-meta{display:block;margin-top:4px;font:500 12px/1.4 var(--f-mono);color:var(--muted)}
+
+/* Writing */
+.posts{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.posts a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:baseline;gap:16px;padding-block:18px;border-bottom:1px solid var(--rule);text-decoration:none}
+.posts a:hover .post-title{color:var(--stamp)}
+.post-title{font-family:var(--f-display);font-stretch:108%;font-weight:600;font-size:clamp(17px,2vw,20px);line-height:1.35;transition:color .15s ease}
+.post-src{font:500 12px/1 var(--f-mono);color:var(--muted);white-space:nowrap}
+
+/* Contact */
+.contact-lead{font-family:var(--f-display);font-stretch:112%;font-weight:600;font-size:clamp(20px,2.6vw,28px);line-height:1.3;letter-spacing:-.01em;max-width:30ch;margin:0 0 32px;text-wrap:balance}
+.links{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.links{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:440px){.links{grid-template-columns:minmax(0,1fr)}}
+.links a{display:flex;flex-direction:column;gap:8px;min-width:0;padding:18px;background:var(--card);border:1px solid var(--rule);border-radius:3px;text-decoration:none;transition:border-color .15s ease,transform .2s ease}
+.links a:hover{border-color:var(--stamp);transform:translateY(-2px)}
+.link-k{font:500 11px/1 var(--f-mono);text-transform:uppercase;letter-spacing:.1em;color:var(--stamp)}
+.link-v{font-weight:600;font-size:16px;overflow-wrap:anywhere}
+
+.site-foot{border-top:1px solid var(--rule);padding-block:28px}
+.foot-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font:400 12px/1.5 var(--f-mono);color:var(--muted)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .stamp{animation:none}
+  .record,.links a,.btn{transition:none}
+  .record:hover,.links a:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="logo" href="#top">B. Altındal <small>005.133 ALT</small></a>
+    <div class="head-right">
+      <nav class="primary" aria-label="Bölümler">
+        <a href="#projects"><span class="tr">Projeler</span><span class="en">Projects</span></a>
+        <a href="#skills"><span class="tr">Yetkinlikler</span><span class="en">Skills</span></a>
+        <a href="#experience"><span class="tr">Deneyim</span><span class="en">Experience</span></a>
+        <a href="#writing"><span class="tr">Yazılar</span><span class="en">Writing</span></a>
+        <a href="#contact"><span class="tr">İletişim</span><span class="en">Contact</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Dil / Language">
+        <button type="button" id="lang-tr" data-set-lang="tr" aria-pressed="true">TR</button>
+        <button type="button" id="lang-en" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Junior Backend Developer · Ankara</p>
+        <h1 class="name"><span>Beyzanur</span><span>Altındal</span></h1>
+        <p class="lead">
+          <span class="tr">Java ve Spring Boot ile backend geliştiriyorum; LLM, RAG ve makine öğrenmesi modellerini gerçek uygulamalara bağlıyorum. Kütüphane ve arşivde indeksleme yaparak geçen zaman bana dağınık veriyi düzenli bir yapıya oturtmayı öğretti. Kodda da aynısını yapmayı seviyorum.</span>
+          <span class="en">I build backends with Java and Spring Boot and connect LLMs, RAG and machine learning models to real applications. Time spent indexing library and archive records taught me to turn scattered data into clean structure, and I bring the same habit to code.</span>
+        </p>
+        <div class="actions">
+          <a class="btn solid" href="#projects"><span class="tr">Projeleri incele</span><span class="en">See projects</span></a>
+          <a class="btn" href="https://github.com/beyzanur314" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn" href="https://www.linkedin.com/in/beyzanur-alt%C4%B1ndal-9b8653223" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="catcard-wrap">
+        <aside class="catcard" aria-label="Katalog kartı / Catalogue card">
+          <div class="catcard-top">
+            <div>
+              <div class="callno">005.133<br>ALT</div>
+              <span class="cardtype"><span class="tr">Yazar kaydı</span><span class="en">Authority record</span></span>
+            </div>
+            <div class="stamp" aria-hidden="true"><span class="tr">Kataloglandı</span><span class="en">Catalogued</span><small>Ankara · 2026</small></div>
+          </div>
+          <dl>
+            <div><dt><span class="tr">Ad</span><span class="en">Name</span></dt><dd>Altındal, Beyzanur</dd></div>
+            <div><dt><span class="tr">Unvan</span><span class="en">Title</span></dt><dd>Junior Backend Developer</dd></div>
+            <div><dt><span class="tr">Konu</span><span class="en">Subjects</span></dt><dd>Java 17 · Spring Boot 3 · <span class="tr">Yapay zekâ entegrasyonları</span><span class="en">AI integrations</span></dd></div>
+            <div><dt><span class="tr">Yer</span><span class="en">Location</span></dt><dd>Ankara, Türkiye</dd></div>
+            <div><dt><span class="tr">Diller</span><span class="en">Languages</span></dt><dd><span class="tr">Türkçe · İngilizce · Korece (A2)</span><span class="en">Turkish · English · Korean (A2)</span></dd></div>
+            <div><dt><span class="tr">Not</span><span class="en">Note</span></dt><dd><span class="tr">Kütüphane ve arşiv indeksleme deneyimi</span><span class="en">Library and archive indexing background</span></dd></div>
+          </dl>
+          <span class="hole" aria-hidden="true"></span>
+        </aside>
+        <p class="card-caption"><span class="tr">005.133 — Dewey onlu sınıflamasında programlama dilleri</span><span class="en">005.133 — programming languages in the Dewey Decimal Classification</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="drawer" id="projects">
+    <div class="wrap">
+      <div class="drawer-head">
+        <span class="dewey">006</span>
+        <h2><span class="tr">Projeler</span><span class="en">Projects</span></h2>
+        <p class="drawer-note">
+          <span class="tr">Her kart, konusunun Dewey numarasını taşıyor. Kodların çoğu <a href="https://github.com/beyzanur314" target="_blank" rel="noopener">GitHub'da</a>.</span>
+          <span class="en">Each card carries the Dewey number of its subject. Most of the code is on <a href="https://github.com/beyzanur314" target="_blank" rel="noopener">GitHub</a>.</span>
+        </p>
+      </div>
+
+      <div class="records">
+        <article class="record">
+          <div class="record-meta"><span>006.3 CHI</span><span class="chip"><span class="tr">Kişisel proje</span><span class="en">Personal project</span></span></div>
+          <h3>Chingu AI</h3>
+          <p>
+            <span class="tr">Spring Boot 3 üzerinde çok özellikli bir yapay zekâ asistanı. Groq LLM API ile sohbet, Tavily ile web araması destekli RAG, PDF işleme, sesi yazıya çevirme ve ONNX Runtime ile ev fiyatı tahmini içeriyor. Giriş Google OAuth2 ile yapılıyor.</span>
+            <span class="en">A multi-feature AI assistant on Spring Boot 3: chat through the Groq LLM API, web-search RAG with Tavily, PDF processing, voice transcription and house-price prediction with ONNX Runtime, behind Google OAuth2 sign-in.</span>
+          </p>
+          <a class="record-link" href="https://dev.to/beyza312" target="_blank" rel="noopener"><span class="tr">DEV.to yazısını oku ↗</span><span class="en">Read the DEV.to post ↗</span></a>
+          <ul class="tags"><li>Java 17</li><li>Spring Boot 3</li><li>Groq API</li><li>RAG</li><li>ONNX</li><li>OAuth2</li><li>MySQL</li></ul>
+        </article>
+
+        <article class="record">
+          <div class="record-meta"><span>006.7 TRO</span><span class="chip"><span class="tr">Ticari site</span><span class="en">Commercial site</span></span></div>
+          <h3>Trophy Hediyelik</h3>
+          <p>
+            <span class="tr">Bir kupa ve hediyelik eşya mağazası için katalog sitesi. 1.078 ürün Excel/CSV'den toplu olarak içe aktarıldı; yönetim paneli, görsel yükleme ve markanın kurumsal kimliği siteye işlendi. Hetzner VPS üzerinde yayına hazırlanıyor.</span>
+            <span class="en">A catalogue site for a trophy and gift shop. 1,078 products imported in bulk from Excel/CSV, with an admin panel, image uploads and the shop's brand identity applied. Being deployed on a Hetzner VPS.</span>
+          </p>
+          <ul class="tags"><li>Java 17</li><li>Spring Boot 3</li><li>Thymeleaf</li><li>MySQL</li><li>Excel/CSV import</li></ul>
+        </article>
+
+        <article class="record">
+          <div class="record-meta"><span>649.1 MIN</span><span class="chip"><span class="tr">Ekip projesi</span><span class="en">Team project</span></span></div>
+          <h3>minikAdimlar</h3>
+          <p>
+            <span class="tr">Bebek gelişimini takip eden mobil uygulamanın Spring Boot backend'i (Juniors-Center). Beslenme ve büyüme kayıtlarını Swagger ile uçtan uca test edip hataları düzelttim; şimdi uygulamanın yapay zekâ sohbet asistanını geliştiriyorum.</span>
+            <span class="en">Spring Boot backend for a baby-development tracking app (Juniors-Center). I tested feeding and growth records end to end with Swagger and fixed bugs; now I'm building the app's AI chat assistant.</span>
+          </p>
+          <ul class="tags"><li>Spring Boot</li><li>REST API</li><li>Swagger</li><li>AI chatbot</li><li>iOS</li></ul>
+        </article>
+
+        <article class="record">
+          <div class="record-meta"><span>006.42 BEL</span><span class="chip"><span class="tr">Devam ediyor</span><span class="en">In progress</span></span></div>
+          <h3><span class="tr">Türkçe Belge Veri Çıkarma</span><span class="en">Turkish Document Extraction</span></h3>
+          <p>
+            <span class="tr">Türkçe belgelerden yapılandırılmış veri çıkarmada OCR, LLM ve hibrit yaklaşımları karşılaştıran bir benchmark ve ona eşlik eden bir makale.</span>
+            <span class="en">A benchmark comparing OCR, LLM and hybrid approaches for extracting structured data from Turkish documents, with an accompanying article.</span>
+          </p>
+          <ul class="tags"><li>Python</li><li>OCR</li><li>LLM</li><li>Benchmark</li></ul>
+        </article>
+
+        <article class="record">
+          <div class="record-meta"><span>006.31 DAT</span><span class="chip"><span class="tr">Yarışma</span><span class="en">Competition</span></span></div>
+          <h3>Datathon 2026</h3>
+          <p>
+            <span class="tr">BTK Akademi, Google ve Girişimcilik Vakfı'nın Kaggle yarışması. Kariyer başarı skoru için regresyon hattı kurdum: RandomForest'tan LightGBM'e, oradan CatBoost'a geçtim. TF-IDF/SVD metin özellikleri ve Optuna ile en iyi public skorum ~90.69 MSE oldu.</span>
+            <span class="en">A Kaggle competition by BTK Akademi, Google and Girişimcilik Vakfı. I built a regression pipeline for a career-success score, moving from RandomForest to LightGBM to CatBoost. With TF-IDF/SVD text features and Optuna tuning, my best public score was ~90.69 MSE.</span>
+          </p>
+          <ul class="tags"><li>Python</li><li>CatBoost</li><li>LightGBM</li><li>Optuna</li><li>TF-IDF</li></ul>
+        </article>
+
+        <article class="record">
+          <div class="record-meta"><span>362.11 HAS</span><span class="chip"><span class="tr">Bitirme projesi</span><span class="en">Graduation project</span></span></div>
+          <h3><span class="tr">Hastane Randevu Sistemi</span><span class="en">Hospital Appointment System</span></h3>
+          <p>
+            <span class="tr">Katmanlı mimariyle geliştirilmiş uçtan uca online randevu uygulaması: T.C. kimlik numarasıyla güvenli giriş, il → ilçe → hastane filtreleme, Fetch API ile canlı doktor listesi ve randevu iptali.</span>
+            <span class="en">A full-stack online appointment app with a layered architecture: secure sign-in with national ID number, city → district → hospital filtering, a live doctor list via the Fetch API, and appointment cancellation.</span>
+          </p>
+          <ul class="tags"><li>Java 17</li><li>Spring Boot 3</li><li>Spring Data JPA</li><li>Bootstrap 5</li><li>SQL Server</li></ul>
+        </article>
+      </div>
+
+      <p class="others">
+        <span class="tr"><b>Diğer</b>Smart Task Manager API · Kreş Otomasyon Sistemi (Orman Genel Müdürlüğü stajı) · Kotlin ve Jetpack Compose ile kişisel gelişim takip uygulaması</span>
+        <span class="en"><b>Also</b>Smart Task Manager API · Daycare Automation System (internship at the General Directorate of Forestry) · a personal-growth tracker in Kotlin and Jetpack Compose</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="drawer" id="skills">
+    <div class="wrap">
+      <div class="drawer-head">
+        <span class="dewey">005</span>
+        <h2><span class="tr">Teknik yetkinlikler</span><span class="en">Skills</span></h2>
+      </div>
+      <div class="skills">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <ul><li>Java 17</li><li>Spring Boot 3</li><li>Spring Data JPA</li><li>REST API</li><li>Thymeleaf</li><li>Swagger / OpenAPI</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="tr">Yapay zekâ ve veri</span><span class="en">AI &amp; data</span></h3>
+          <ul><li><span class="tr">LLM API entegrasyonu</span><span class="en">LLM API integration</span></li><li>RAG</li><li>ONNX Runtime</li><li>CatBoost · LightGBM</li><li>Optuna</li><li>Python</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="tr">Veritabanı</span><span class="en">Databases</span></h3>
+          <ul><li>MySQL</li><li>Microsoft SQL Server</li><li>SQL</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3><span class="tr">Diğer</span><span class="en">Other</span></h3>
+          <ul><li>Kotlin · Jetpack Compose</li><li>HTML · CSS · JavaScript</li><li>Bootstrap 5</li><li>Git · GitHub</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="drawer" id="experience">
+    <div class="wrap">
+      <div class="drawer-head">
+        <span class="dewey">331.7</span>
+        <h2><span class="tr">Deneyim</span><span class="en">Experience</span></h2>
+      </div>
+      <ol class="ledger">
+        <li>
+          <div><div class="org">KODA Bilişim</div><span class="period"><span class="tr">Eki 2026 – devam ediyor</span><span class="en">Oct 2026 – present</span></span></div>
+          <div>
+            <div class="role"><span class="tr">Dijitalleştirme projesi</span><span class="en">Digitalization project</span></div>
+            <p class="desc"><span class="tr">Ulaştırma ve Altyapı Bakanlığı dijitalleşme projesinde belge indeksleme, tasnif ve tarama.</span><span class="en">Document indexing, classification and scanning for the Ministry of Transport and Infrastructure digitalization project.</span></p>
+          </div>
+        </li>
+        <li>
+          <div><div class="org">Juniors-Center</div><span class="period"><span class="tr">2026 – devam ediyor</span><span class="en">2026 – present</span></span></div>
+          <div>
+            <div class="role"><span class="tr">Backend geliştirici · ekip projesi</span><span class="en">Backend developer · team project</span></div>
+            <p class="desc"><span class="tr">minikAdimlar uygulamasının backend'inde test ve hata düzeltme; yapay zekâ sohbet asistanının geliştirilmesi.</span><span class="en">Testing and bug fixing on the minikAdimlar backend; building its AI chat assistant.</span></p>
+          </div>
+        </li>
+        <li>
+          <div><div class="org">T3 AI</div><span class="period"><span class="tr">Gönüllü</span><span class="en">Volunteer</span></span></div>
+          <div>
+            <div class="role"><span class="tr">Açık kaynak katkıcı</span><span class="en">Open-source contributor</span></div>
+            <p class="desc"><span class="tr">Ulusal açık kaynak büyük dil modeli projesine veri katkısı, model testleri ve dokümantasyon.</span><span class="en">Data contributions, model testing and documentation for Türkiye's national open-source large language model.</span></p>
+          </div>
+        </li>
+        <li>
+          <div><div class="org"><span class="tr">Milli Kütüphane</span><span class="en">National Library of Türkiye</span></div><span class="period"><span class="tr">8 ay</span><span class="en">8 months</span></span></div>
+          <div>
+            <div class="role"><span class="tr">İndeksleme</span><span class="en">Indexing</span></div>
+            <p class="desc"><span class="tr">Kütüphane kayıtlarının indekslenmesi ve düzenlenmesi.</span><span class="en">Indexing and organizing library records.</span></p>
+          </div>
+        </li>
+        <li>
+          <div><div class="org">TNC Group</div><span class="period"><span class="tr">Staj · uzaktan</span><span class="en">Internship · remote</span></span></div>
+          <div>
+            <div class="role"><span class="tr">Stajyer</span><span class="en">Intern</span></div>
+          </div>
+        </li>
+        <li>
+          <div><div class="org"><span class="tr">Orman Genel Müdürlüğü</span><span class="en">General Directorate of Forestry</span></div><span class="period"><span class="tr">Staj · Ankara</span><span class="en">Internship · Ankara</span></span></div>
+          <div>
+            <div class="role"><span class="tr">Yazılım stajyeri</span><span class="en">Software intern</span></div>
+            <p class="desc"><span class="tr">Kreş Otomasyon Sistemi'ni geliştirdim.</span><span class="en">Built the Daycare Automation System.</span></p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="drawer" id="education">
+    <div class="wrap">
+      <div class="drawer-head">
+        <span class="dewey">378</span>
+        <h2><span class="tr">Eğitim ve sertifikalar</span><span class="en">Education &amp; certificates</span></h2>
+      </div>
+      <div class="two">
+        <div>
+          <h3 class="col-label"><span class="tr">Eğitim</span><span class="en">Education</span></h3>
+          <ul class="entries grid-2">
+            <li>
+              <span class="entry-title"><span class="tr">Gazi Üniversitesi · TUSAŞ-Kazan MYO</span><span class="en">Gazi University · TUSAŞ-Kazan Vocational School</span></span>
+              <span class="entry-sub"><span class="tr">Bilgisayar Programcılığı (Önlisans)</span><span class="en">Computer Programming (Associate degree)</span></span>
+              <span class="entry-meta"><span class="tr">Mezuniyet 2024</span><span class="en">Graduated 2024</span></span>
+            </li>
+            <li>
+              <span class="entry-title"><span class="tr">YÖK Dijital Üniversite Platformu</span><span class="en">YÖK Digital University Platform</span></span>
+              <span class="entry-sub"><span class="tr">Veri Analitiği · Modern Yazılım Geliştirme</span><span class="en">Data Analytics · Modern Software Development</span></span>
+              <span class="entry-meta"><span class="tr">Marmara Üniversitesi ve YTÜ · Mart 2027'de başlıyor</span><span class="en">Marmara University &amp; YTÜ · starts March 2027</span></span>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="col-label"><span class="tr">Sertifikalar</span><span class="en">Certificates</span></h3>
+          <ul class="entries grid-3">
+            <li><span class="entry-title">Generative AI Mastery</span><span class="entry-meta">HP · 2026</span></li>
+            <li><span class="entry-title">Datathon 2026</span><span class="entry-meta"><span class="tr">BTK Akademi · Google · katılım</span><span class="en">BTK Akademi · Google · participation</span></span></li>
+            <li><span class="entry-title">Generative AI for Educators</span><span class="entry-meta"><span class="tr">Google · Haz 2025</span><span class="en">Google · Jun 2025</span></span></li>
+            <li><span class="entry-title"><span class="tr">Yapay Zeka ile Dönüştürme</span><span class="en">Transforming with AI</span></span><span class="entry-meta">Microsoft · Kodluyoruz · <span class="tr">May 2025</span><span class="en">May 2025</span></span></li>
+            <li><span class="entry-title">AI4 Change Program</span><span class="entry-meta">Kodluyoruz · <span class="tr">May 2025</span><span class="en">May 2025</span></span></li>
+            <li><span class="entry-title"><span class="tr">Makine Öğrenimi</span><span class="en">Machine Learning</span></span><span class="entry-meta"><span class="tr">Turkcell Geleceği Yazanlar · Ara 2024</span><span class="en">Turkcell Geleceği Yazanlar · Dec 2024</span></span></li>
+            <li><span class="entry-title"><span class="tr">Veri Bilimi ve Yapay Zeka</span><span class="en">Data Science and AI</span></span><span class="entry-meta"><span class="tr">Turkcell Geleceği Yazanlar · Ara 2024</span><span class="en">Turkcell Geleceği Yazanlar · Dec 2024</span></span></li>
+            <li><span class="entry-title"><span class="tr">Python Programlama 401</span><span class="en">Python Programming 401</span></span><span class="entry-meta"><span class="tr">Turkcell Geleceği Yazanlar · Ara 2024</span><span class="en">Turkcell Geleceği Yazanlar · Dec 2024</span></span></li>
+            <li><span class="entry-title">AI Fundamentals</span><span class="entry-meta">AWS</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="drawer" id="writing">
+    <div class="wrap">
+      <div class="drawer-head">
+        <span class="dewey">808</span>
+        <h2><span class="tr">Yazılar</span><span class="en">Writing</span></h2>
+        <p class="drawer-note"><span class="tr">Medium ve DEV.to'da yazılım, yapay zekâ ve açık kaynak gönüllülüğü üzerine yazıyorum.</span><span class="en">I write about software, AI and open-source volunteering on Medium and DEV.to.</span></p>
+      </div>
+      <ul class="posts">
+        <li><a href="https://medium.com/@altindalbeyzanur" target="_blank" rel="noopener"><span class="post-title">Technology Volunteering: Creating Social Impact Through Open Source Projects</span><span class="post-src">Medium ↗</span></a></li>
+        <li><a href="https://medium.com/@altindalbeyzanur" target="_blank" rel="noopener"><span class="post-title">The Human Side of Code</span><span class="post-src">Medium ↗</span></a></li>
+        <li><a href="https://dev.to/beyza312" target="_blank" rel="noopener"><span class="post-title"><span class="tr">Chingu AI: GitHub Finish-Up-A-Thon Challenge yazısı</span><span class="en">Chingu AI for the GitHub Finish-Up-A-Thon Challenge</span></span><span class="post-src">DEV.to ↗</span></a></li>
+        <li><a href="https://medium.com/@altindalbeyzanur" target="_blank" rel="noopener"><span class="post-title"><span class="tr">Yapay zekâ destekli kodlama üzerine ilk yazım</span><span class="en">My first post, on AI-assisted coding</span></span><span class="post-src">Medium ↗</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="drawer" id="contact">
+    <div class="wrap">
+      <div class="drawer-head">
+        <span class="dewey">384</span>
+        <h2><span class="tr">İletişim</span><span class="en">Contact</span></h2>
+      </div>
+      <p class="contact-lead"><span class="tr">Backend, yapay zekâ entegrasyonu ya da belge verisi çıkarma üzerine çalışıyorsanız yazın.</span><span class="en">If you're working on backend, AI integration or document data extraction, get in touch.</span></p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/beyzanur-alt%C4%B1ndal-9b8653223" target="_blank" rel="noopener"><span class="link-k">LinkedIn</span><span class="link-v">beyzanur-altındal</span></a>
+        <a href="https://github.com/beyzanur314" target="_blank" rel="noopener"><span class="link-k">GitHub</span><span class="link-v">beyzanur314</span></a>
+        <a href="https://medium.com/@altindalbeyzanur" target="_blank" rel="noopener"><span class="link-k">Medium</span><span class="link-v">@altindalbeyzanur</span></a>
+        <a href="https://dev.to/beyza312" target="_blank" rel="noopener"><span class="link-k">DEV.to</span><span class="link-v">beyza312</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <span>© 2026 Beyzanur Altındal</span>
+    <span>005.133 ALT · Ankara</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root = document.documentElement;
+  var buttons = document.querySelectorAll('[data-set-lang]');
+  function setLang(l){
+    root.setAttribute('data-lang', l);
+    root.lang = l;
+    buttons.forEach(function(b){ b.setAttribute('aria-pressed', String(b.getAttribute('data-set-lang') === l)); });
+    try { localStorage.setItem('portfolio-lang', l); } catch (e) {}
+  }
+  var saved = 'tr';
+  try { saved = localStorage.getItem('portfolio-lang') || 'tr'; } catch (e) {}
+  setLang(saved === 'en' ? 'en' : 'tr');
+  buttons.forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-set-lang')); }); });
+})();
+</script>
+</body>
+</html>
